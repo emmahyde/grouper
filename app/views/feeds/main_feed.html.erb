@@ -1,0 +1,14 @@
+<%= render 'shared/nav' %>
+<div id="main-feed">
+    <h1>Main Feed</h1>
+    <div class="new-post">
+        <%= render 'posts/form', post: @new_post %>
+    </div>  
+    <% @posts.each do |post| %>
+    <div>
+        <% @posts.each do |post| %>
+            <%= render 'posts/post', post: post %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

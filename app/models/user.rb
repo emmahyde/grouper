@@ -11,4 +11,5 @@
 class User < ApplicationRecord
   has_one :profile
   has_many :friends, through: :friendships, class_name: 'User'
+  has_many :posts
 end
