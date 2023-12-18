@@ -13,8 +13,6 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-# Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -51,7 +49,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around :each do |example|
+  config.around do |example|
     DatabaseCleaner.cleaning do
       example.run
     end

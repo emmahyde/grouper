@@ -9,7 +9,8 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-  has_one :profile
+  has_one :profile, dependent: :destroy
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 

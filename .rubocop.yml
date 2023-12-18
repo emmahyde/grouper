@@ -18,6 +18,12 @@ Style/BlockComments:
 Style/HashSyntax:
   Enabled: false
 
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 FactoryBot/ConsistentParenthesesStyle:
   Enabled: false
 

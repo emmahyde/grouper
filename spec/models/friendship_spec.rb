@@ -15,13 +15,13 @@ describe Friendship do
 
     context 'when the user is deleted' do
       it 'cascades deletions for friendships where this is the user' do
-        expect { user.destroy }.to change(Friendship, :count).by(-2)
+        expect { user.destroy }.to change(described_class, :count).by(-2)
       end
     end
 
     context 'when the friend is deleted' do
       it 'cascades deletions for friendships where this is the friend' do
-        expect { user.friends.first.destroy }.to change(Friendship, :count).by(-1)
+        expect { user.friends.first.destroy }.to change(described_class, :count).by(-1)
       end
     end
   end
