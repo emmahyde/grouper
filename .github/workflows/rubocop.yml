@@ -21,4 +21,4 @@ jobs:
         bundler-cache: true
     
     - name: Run Rubocop Script
-      run: bash lib/actions/run_rubocop.sh
+      run: bundle exec rubocop --parallel
