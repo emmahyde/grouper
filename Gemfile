@@ -35,6 +35,7 @@ gem 'bootsnap', require: false
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
+  gem 'rubocop'
   gem "rubocop-rails", "~> 2.23"
   gem "rubocop-rspec", "~> 2.25"
   gem 'rspec-rails', '~> 6.1.0'
