@@ -19,6 +19,9 @@ jobs:
       with:
         ruby-version: 3.2
         bundler-cache: true
+    
+    - name: Install Rubocop 
+      run: gem install rubocop rubocop-rails rubocop-rspec
 
     - name: Run RuboCop
       run: bundle exec rubocop --parallel
