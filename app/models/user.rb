@@ -10,5 +10,8 @@
 #
 class User < ApplicationRecord
   has_one :profile
-  has_many :friends, through: :friendships, class_name: 'User'
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+
+  validates_uniqueness_of :email
 end

@@ -1,0 +1,12 @@
+##### EXAMPLE:
+# Style/Encoding:
+#  Enabled: false
+#
+#Layout/LineLength:
+#  Max: 99
+
+Style/BlockComments:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 200
