@@ -1,9 +1,27 @@
 <div class="text-center align-middle">
-  <h1 class="font-bold text-4xl text-blue-500">Dashboard#show</h1>
-  <p class="italic text-sm">Find me in app/views/dashboard/show.html.erb</p>
-  <h2 class="text-green-600 font-bold">=> hello_controller.js output:</h2>
-  <!--maps to controllers/hello_controller.js-->
+  <h1 class="font-bold text-4xl text-blue-500">
+    Dashboard#show
+  </h1>
+
+  <p class="italic text-xs">
+    <span class="font-bold">Backend Controller Directory:</span>
+    app/controllers/dashboard_controller.rb
+  </p>
+
+  <p class="italic text-xs">
+    <span class="font-bold">Frontend Controller Directory:</span>
+    app/javascript/controllers/dashboard_controller.js
+  </p>
+
+  <p class="italic text-xs">
+    <span class="font-bold">Template Directory:</span>
+    app/views/dashboard/show.html.erb
+  </p>
+
+  <h2 class="text-green-600 font-bold">hello_controller.js output =></h2>
+
   <div class="inline-block bg-black text-white px-20">
-    <p data-controller="hello" class="font-bold"></p>
+    <!-- see index.js for data-controller value mapping -->
+    <p data-controller="dashboard" class="font-bold"></p>
   </div>
 </div>

@@ -4,5 +4,7 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import DashboardController from "./dashboard_controller"
+
+// this is where the `data-controller` value comes from, i.e. 'dashboard'
+application.register("dashboard", DashboardController)
