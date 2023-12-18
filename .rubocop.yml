@@ -4,8 +4,21 @@
 #
 #Layout/LineLength:
 #  Max: 99
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
 
 Style/BlockComments:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+FactoryBot/ConsistentParenthesesStyle:
   Enabled: false
 
 Metrics/BlockLength:

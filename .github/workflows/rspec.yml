@@ -1,0 +1,22 @@
+# TODO: docker so that postgres gets loaded by the action
+
+#name: rspec
+#on: [pull_request]
+#permissions:
+#  contents: read
+#  pull-requests: write
+#
+#jobs:
+#  rspec:
+#    name: runner / rspec
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Check out code
+#        uses: actions/checkout@v4
+#
+#      - uses: ruby/setup-ruby@v1
+#        with:
+#          bundler-cache: true
+#
+#      - name: Run rspec
+#        run: bundle exec rspec spec

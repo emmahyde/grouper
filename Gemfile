@@ -35,21 +35,19 @@ gem 'bootsnap', require: false
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
-  gem 'rspec-rails', '~> 6.1.0'
   gem 'faker'
+  gem 'rspec-rails', '~> 6.1.0'
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'annotate'
 end
 
-group :test, :development do 
+group :test, :development do
   gem 'rubocop'
-  gem "rubocop-rails", "~> 2.23"
-  gem "rubocop-rspec", "~> 2.25"
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
-
