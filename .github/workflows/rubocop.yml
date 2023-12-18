@@ -19,6 +19,5 @@ jobs:
     
     - run: echo $PATH | tr ':' '\n'
     - run: bundle info rubocop
-    - run: gem which rubocop
     - name: Lint Ruby files
-      run: rubocop --parallel
+      run: bundle exec rubocop --parallel
