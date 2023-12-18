@@ -6,4 +6,5 @@
 - `bundle install`
 - `brew install postgresql`
 - `brew services start postgresql`
-- `rails db:create db:migrate db:setup`
+- `bundle exec bin/setup` to initialize the postgres database
+- `bundle exec bin/dev` to run the application
