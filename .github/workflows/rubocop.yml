@@ -20,5 +20,8 @@ jobs:
         ruby-version: 3.2.2
         bundler-cache: true
     
-    - name: Run Rubocop Script
-      run: bundle exec rubocop --parallel
+    - run: echo $PATH | tr ':' '\n'
+    - run: bundle info rubocop
+    - run: gem which rubocop
+    - name: Lint Ruby files
+      run: rubocop --parallel
