@@ -114,14 +114,16 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.2.3)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jsbundling-rails (1.2.1)
-      railties (>= 6.0.0)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
@@ -198,6 +200,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.1.0)
+    redis (4.8.1)
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -287,11 +290,12 @@ DEPENDENCIES
   database_cleaner-active_record
   factory_bot_rails (~> 6.4.2)
   faker
+  importmap-rails
   jbuilder
-  jsbundling-rails
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
+  redis (~> 4.0)
   rspec-rails (~> 6.1.0)
   rubocop
   rubocop-performance
