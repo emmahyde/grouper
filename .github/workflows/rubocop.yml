@@ -17,11 +17,11 @@ jobs:
     - name: Set up Ruby 3.2
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2
+        ruby-version: 3.2.2
         bundler-cache: true
     
     - name: Install Rubocop 
-      run: gem install rubocop rubocop-rails rubocop-rspec
+      run: bundle install
 
     - name: Run RuboCop
       run: bundle exec rubocop --parallel

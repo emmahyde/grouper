@@ -32,11 +32,13 @@ gem 'tzinfo-data', platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'rubocop'
+gem "rubocop-rails", "~> 2.23"
+gem "rubocop-rspec", "~> 2.25"
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
-  gem "rubocop-rails", "~> 2.23"
-  gem "rubocop-rspec", "~> 2.25"
   gem 'rspec-rails', '~> 6.1.0'
   gem 'faker'
 end
@@ -47,8 +49,4 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
-end
-
-group :test, :development do
-  gem 'rubocop'
 end
