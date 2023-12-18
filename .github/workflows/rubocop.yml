@@ -20,8 +20,5 @@ jobs:
         ruby-version: 3.2.2
         bundler-cache: true
     
-    - name: Install Rubocop 
-      run: bundle install
-
-    - name: Run RuboCop
-      run: bundle exec rubocop --parallel
+    - name: Run Rubocop Script
+      run: bash lib/actions/run_rubocop.sh
