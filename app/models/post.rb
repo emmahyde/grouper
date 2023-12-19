@@ -8,5 +8,5 @@ class Post < ApplicationRecord
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 end
