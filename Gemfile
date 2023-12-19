@@ -50,6 +50,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
+  gem 'hotwire-livereload', '~> 1.3'
 end
 
 group :test, :development do
