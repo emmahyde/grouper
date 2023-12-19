@@ -7,6 +7,13 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@babel/runtime@^7.21.0":
+  version "7.23.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.6.tgz#c05e610dc228855dc92ef1b53d07389ed8ab521d"
+  integrity sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@esbuild/android-arm64@0.19.9":
   version "0.19.9"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.19.9.tgz#683794bdc3d27222d3eced7b74cad15979548031"
@@ -117,25 +124,23 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.9.tgz#b2da6219b603e3fa371a78f53f5361260d0c5585"
   integrity sha512-oxoQgglOP7RH6iasDrhY+R/3cHrfwIDvRlT4CGChflq6twk8iENeVvMJjmvBb94Ik1Z+93iGO27err7w6l54GQ==
 
-"@hotwired/stimulus@^3.2.2":
+"@hotwired/stimulus@^3.0.0", "@hotwired/stimulus@^3.2.1", "@hotwired/stimulus@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.2.2.tgz#071aab59c600fed95b97939e605ff261a4251608"
   integrity sha512-eGeIqNOQpXoPAIP7tC1+1Yc1yl1xnwYqg+3mzqxyrbE5pg5YFBZcA6YoTiByJB6DKAEsiWtl6tjTJS4IYtbB7A==
 
-"@hotwired/turbo-rails@^8.0.0-beta.1":
-  version "8.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.1.tgz#7d5bd2843caa5d8d224eb36f22078311163128bd"
-  integrity sha512-x9G95vehf5LR4yYGvhD4z6wBMbmAVi0V87FTfenrmXPru4SfOVDsCwdEINBWsLqOvCgRPQD9eY2nGyDfZlsukg==
+"@hotwired/turbo-rails@^8.0.0-beta.2":
+  version "8.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.2.tgz#691f8e05ad97f4c192953c4d14d5c288badb3498"
+  integrity sha512-t/e2FvOrhkDOWygsxqJ/drCz74j16hfq3wobzST9qFp7wBZXbGuw0dxB7sPpC+4I9s726KKR5ZaN+D8zaaGfPg==
   dependencies:
-    "@hotwired/turbo" "^8.0.0-beta.1"
+    "@hotwired/turbo" "^8.0.0-beta.2"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^8.0.0-beta.1":
-  version "8.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.1.tgz#35a7086c4c959445db059ea4a9b9af85cdafa616"
-  integrity sha512-g66YmO/Oa+EThB3KkNDhrM9mFnNyRn6tqgwGiBHh4Vf+d3XjCznuWSG2o2e2cO/RlddVRtCwvBSMuG6sYQWX+g==
-  dependencies:
-    idiomorph "https://github.com/basecamp/idiomorph#rollout-build"
+"@hotwired/turbo@^8.0.0-beta.2":
+  version "8.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.2.tgz#f9d01a0ca788ed5bf78a1746e06c3244af2b7535"
+  integrity sha512-Ewdz4m+rlBXiqU8hXC9qjrA6/gaYlwUWbab8M/+/PW3KEoZ36pqvLt4l7wEXELPk699bRXVFS08mt3icJ0idfg==
 
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -194,6 +199,32 @@
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.1.2.tgz#d261ff4b72844f5af496671346ec478798f4ac2c"
   integrity sha512-KGziTZfbmGm8/fHOpj515xupbYU+49hsp4etfdpoDJ/CEY2bRZR0cyFcJkpK6n0t/sxOHNWY6bo9vSgXZvT7Mg==
+
+"@stimulus-library/controllers@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@stimulus-library/controllers/-/controllers-1.0.6.tgz#8122303e6dfa1139abda15e5aa41b81ce303bedf"
+  integrity sha512-cdA4NmiHI2oLImHcphtJnVmhxQ2Krz2Nh85UlXez0US9OS50SiVkxe+nAajt0eJ5o6HHfrr5SUxiUilQqlK90g==
+  dependencies:
+    "@stimulus-library/mixins" "^1.0.5"
+    "@stimulus-library/utilities" "^1.0.5"
+    date-fns "^2.29.3"
+
+"@stimulus-library/mixins@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@stimulus-library/mixins/-/mixins-1.0.5.tgz#4b8834e7279978caf4ea277735d40c350b1e56f2"
+  integrity sha512-saPVDcYVMTFAebaRJ4IAoNdEnfJpMIQxMgQf/CNugEDbxQb6+r7ZEIW3AmXedkKda3roN8TKrL7nUacXWxaz5Q==
+  dependencies:
+    "@hotwired/stimulus" "^3.0.0"
+    "@stimulus-library/utilities" "^1.0.5"
+
+"@stimulus-library/utilities@^1.0.2", "@stimulus-library/utilities@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@stimulus-library/utilities/-/utilities-1.0.5.tgz#8f790e1f13e64553c0bce617f6f3b56b7be77422"
+  integrity sha512-cTJk4OQwMy+VaXhSRszfZuIgt2GY49fn3IzktS15IV2qdVsaxF66mIdbuYRJgdIpMsQzQ/1gW5iS2P10iDpFpg==
+  dependencies:
+    "@hotwired/stimulus" "^3.0.0"
+    "@stimulus-library/utilities" "^1.0.2"
+    mitt "^3.0.0"
 
 any-promise@^1.0.0:
   version "1.3.0"
@@ -299,6 +330,13 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+date-fns@^2.29.3:
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.30.0.tgz#f367e644839ff57894ec6ac480de40cae4b0f4d0"
+  integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -426,10 +464,6 @@ hasown@^2.0.0:
   dependencies:
     function-bind "^1.1.2"
 
-"idiomorph@https://github.com/basecamp/idiomorph#rollout-build":
-  version "0.0.8"
-  resolved "https://github.com/basecamp/idiomorph#e906820368e4c9c52489a3336b8c3826b1bf6de5"
-
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -513,6 +547,11 @@ minimatch@^3.0.4:
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
+
+mitt@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-3.0.1.tgz#ea36cf0cc30403601ae074c8f77b7092cdab36d1"
+  integrity sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==
 
 mz@^2.7.0:
   version "2.7.0"
@@ -662,6 +701,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+regenerator-runtime@^0.14.0:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz#356ade10263f685dda125100cd862c1db895327f"
+  integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
+
 resolve@^1.1.7, resolve@^1.22.2:
   version "1.22.8"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.8.tgz#b6c87a9f2aa06dfab52e3d70ac8cde321fa5a48d"
@@ -688,6 +732,21 @@ source-map-js@^1.0.2:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
+stimulus-library@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/stimulus-library/-/stimulus-library-1.0.6.tgz#fc70e9ab513715ccb2221db13778a4685e69856f"
+  integrity sha512-8CPaVp4bqYGdesF38lGTObKnPlZFe04hVvBsnMznmZZAbnaaPaZ9sTXze9ECyQ16M+e0A9lpmkmojGyJlaEmtQ==
+  dependencies:
+    "@hotwired/stimulus" "^3.2.1"
+    "@stimulus-library/controllers" "^1.0.6"
+    "@stimulus-library/mixins" "^1.0.5"
+    "@stimulus-library/utilities" "^1.0.5"
+
+stimulus-use@^0.52.1:
+  version "0.52.1"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.52.1.tgz#f49435b0c7fbde34b9199d5db5e2da57b9db0ed9"
+  integrity sha512-hIZZQJ8mZEYOxmyU8Yr26lj8xiBHuVC5ngvGb/AKA1fBct4vG3JV+QOkCY0jGvWrQ2Nisvg2xsARKTtLLLQrsQ==
+
 sucrase@^3.32.0:
   version "3.34.0"
   resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.34.0.tgz#1e0e2d8fcf07f8b9c3569067d92fbd8690fb576f"
@@ -705,6 +764,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+tailwindcss-stimulus-components@^4.0.3:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-4.0.4.tgz#1df5f2a488aa89365561bb33357095cd59ed831a"
+  integrity sha512-xNlMs1WufKiTMQtVklwHfrR/iuPVaFA0Mk5uefRnHztmr7w4g6BzKAWHyfte60pjhcQbmlbshHMOZiq/dkXnhw==
 
 tailwindcss@^3.3.7:
   version "3.3.7"

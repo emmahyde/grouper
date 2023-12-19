@@ -29,7 +29,7 @@ gem 'cssbundling-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-# Use Redis adapter to run Action Cable in production
+# Use Redis adapter to run Action Cable in production + to support Turbo
 gem 'redis', '>= 4.0.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -49,7 +49,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'foreman'
+  gem 'hotwire-livereload', '~> 1.3'
 end
 
 group :test, :development do
