@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<%= form_with(url: login_path, method: :post) do |form| %>
+
+  <div class="field">
+    <%= form.label :email %><br>
+    <%= form.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Log in" %>
+  </div>
+
+<% end %>
+
+<%= link_to "Make a new account", registration_path %>
+<p>'Forgot your password? Too bad!'</p>

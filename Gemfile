@@ -32,6 +32,9 @@ gem 'tzinfo-data', platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# bcrypt for password hashing
+gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do
   gem 'debug', platforms: %i[ mri ]
   gem 'rspec-rails', '~> 6.1.0'
