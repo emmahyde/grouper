@@ -1,0 +1,31 @@
+##### EXAMPLE:
+# Style/Encoding:
+#  Enabled: false
+#
+#Layout/LineLength:
+#  Max: 99
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Style/BlockComments:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 200

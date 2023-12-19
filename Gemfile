@@ -23,11 +23,17 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+# Use Redis adapter to run Action Cable in production + to support Turbo
+gem 'redis', '>= 4.0.1'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ windows jruby ]
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -35,16 +41,23 @@ gem 'bootsnap', require: false
 # bcrypt for password hashing
 gem 'bcrypt', '~> 3.1.7'
 
-group :development, :test do
-  gem 'debug', platforms: %i[ mri ]
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails', '~> 6.4.2'
+  gem 'faker'
   gem 'rspec-rails', '~> 6.1.0'
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'annotate'
+  gem 'hotwire-livereload', '~> 1.3'
 end
 
+group :test, :development do
+  gem 'rubocop'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
