@@ -6,5 +6,4 @@ import { application } from "./application"
 
 import DashboardController from "./dashboard_controller"
 
-// this is where the `data-controller` value comes from, i.e. 'dashboard'
 application.register("dashboard", DashboardController)
