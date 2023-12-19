@@ -31,4 +31,4 @@ users.each do |user|
     end
   end
 
-  puts "Rite of Database Seeding Complete"
+puts "Rite of Database Seeding Complete"
