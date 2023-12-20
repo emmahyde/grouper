@@ -12,11 +12,20 @@ Rails.application.routes.draw do
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  get 'registration', to: 'users#new'
+  # authorization flows
+  get 'registration',  to: 'users#new'
   post 'registration', to: 'users#create'
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  get 'login',         to: 'sessions#new'
+  post 'login',        to: 'sessions#create'
 
-  delete 'logout', to: 'sessions#destroy'
+  delete 'logout',     to: 'sessions#destroy'
+
+  # visitable pages
+  resources :users
+  resources :friendships do
+    collection do
+      post :accept
+    end
+  end
 end

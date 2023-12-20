@@ -8,6 +8,9 @@
 - `bundle install`
 - `brew install postgresql`
 - `brew services start postgresql`
+- `nvm install 20`
+- `npm install -g yarn`
+- `yarn install`
 - `bundle exec bin/setup` to initialize the postgres database
 
 ## Running The Application
