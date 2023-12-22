@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: "User was successfully created." }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
