@@ -38,6 +38,38 @@ CREATE TABLE public.friendships (
 
 
 --
+-- Name: posts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.posts (
+    id bigint NOT NULL,
+    text text,
+    user_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
+
+
+--
 -- Name: profiles; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -89,7 +121,8 @@ CREATE TABLE public.users (
     name character varying,
     email character varying NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    password_digest character varying
 );
 
 
@@ -110,6 +143,13 @@ CREATE SEQUENCE public.users_id_seq
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_id_seq'::regclass);
 
 
 --
@@ -140,6 +180,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.friendships
     ADD CONSTRAINT friendships_pkey PRIMARY KEY (user_id, friend_id);
+
+
+--
+-- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
 
 
 --
@@ -181,6 +229,13 @@ CREATE INDEX index_friendships_on_user_id ON public.friendships USING btree (use
 
 
 --
+-- Name: index_posts_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_posts_on_user_id ON public.posts USING btree (user_id);
+
+
+--
 -- Name: index_profiles_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -192,6 +247,14 @@ CREATE UNIQUE INDEX index_profiles_on_user_id ON public.profiles USING btree (us
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON public.users USING btree (email);
+
+
+--
+-- Name: posts fk_rails_5b5ddfd518; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT fk_rails_5b5ddfd518 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
@@ -225,6 +288,8 @@ ALTER TABLE ONLY public.profiles
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20231215204045'),
+('20231215161926'),
 ('20231213181516'),
 ('20231213181506'),
 ('20231213181454');
