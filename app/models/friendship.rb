@@ -10,6 +10,7 @@
 class Friendship < ApplicationRecord
   self.primary_key = %i[user_id friend_id]
 
+  # TODO: :from_user and :to_user instead of :user / :friend
   belongs_to :user
   belongs_to :friend, class_name: 'User'
 

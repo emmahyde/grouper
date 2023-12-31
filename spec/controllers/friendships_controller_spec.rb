@@ -5,8 +5,8 @@ describe FriendshipsController, type: :request do
     subject do
       post friendships_url,
         params: {
-          user_id:   user_one.id,
-          friend_id: user_two.id,
+          from_user_id: user_one.id,
+          to_user_id:   user_two.id,
         }
     end
 

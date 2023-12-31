@@ -1,8 +1,8 @@
 class FriendshipsController < ApplicationController
   def create
     @friendship = FriendRequests::Send.call(
-      from: params[:user_id],
-      to:   params[:friend_id],
+      from_user: params[:user_id],
+      to_user:   params[:friend_id],
     )
 
     render @friendship, status: :created
@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
   private
 
   def create_params
-    params.permit(:user_id, :friend_id)
+    params.permit(:from_user_id, :to_user_id)
   end
 
   def accept_params

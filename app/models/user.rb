@@ -19,5 +19,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :posts
 
+  has_many :incoming_friend_requests, through: :friendships, foreign_key: :friend_id
+
   validates :email, uniqueness: true
 end

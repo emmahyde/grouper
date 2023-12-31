@@ -2,9 +2,9 @@ module FriendRequests
   class Send
     include Serviceable
 
-    def initialize(from:, to:)
-      @user   = User.find(from)
-      @friend = User.find(to)
+    def initialize(from_user:, to_user:)
+      @user   = User.find(from_user)
+      @friend = User.find(to_user)
     end
 
     attr_reader :user, :friend
