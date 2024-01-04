@@ -10,7 +10,7 @@ window.Stimulus   = application
 // application.register("auto-submit-form", AutoSubmitFormController)
 
 // this is where the `data-controller` value comes from, i.e. 'dashboard'
-// application.register("dashboard", DashboardController)
+// application.register("friendships", FriendshipsController)
 
 export { application }
 

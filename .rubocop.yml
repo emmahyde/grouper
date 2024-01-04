@@ -65,3 +65,6 @@ Style/TrailingCommaInArguments:
 
 RSpec/LetSetup:
   Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false

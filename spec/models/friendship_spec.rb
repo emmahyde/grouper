@@ -8,7 +8,7 @@ describe Friendship do
       it 'disallows duplicate values, as a primary key' do
         expect { user.friends.push(user) }.to raise_error(
           ActiveRecord::RecordInvalid,
-          "Validation failed: Friend can't be the same as the user"
+          'Validation failed: User is reserved'
         )
       end
     end

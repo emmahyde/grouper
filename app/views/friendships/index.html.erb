@@ -1,0 +1,33 @@
+<div>
+  <h1 class='font-bold text-4xl text-blue-500'>
+    Incoming Requests:
+  </h1>
+
+  <% current_user.incoming_friend_requests.each do |friendship| %>
+    <%= render 'friendship', friendship: %>
+  <% end %>
+
+  <h1 class='font-bold text-4xl text-blue-500'>
+    Outgoing Requests:
+  </h1>
+
+  <% current_user.outgoing_friend_requests.each do |friendship| %>
+    <%= render 'friendship', friendship: %>
+  <% end %>
+
+  <h1 class='font-bold text-4xl text-blue-500'>
+    Friends:
+  </h1>
+
+  <% current_user.mutuals.each do |friendship| %>
+    <%= render 'friendship', friendship: %>
+  <% end %>
+</div>
+
+<!--<div class="text-center align-middle">-->
+<!--  <h1 class="font-bold text-4xl text-blue-500">-->
+<!--    Friendships#create-->
+<!--  </h1>-->
+
+<!--  <p class="italic text-xs">-->
+<!--    <span class="font-bold">-->

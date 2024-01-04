@@ -55,8 +55,8 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'foreman'
   gem 'hotwire-livereload', '~> 1.3'
+  gem 'yard', '~> 0.9.34', require: false
 end
 
 group :test, :development do

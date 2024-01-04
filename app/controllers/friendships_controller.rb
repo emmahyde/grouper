@@ -1,19 +1,25 @@
 class FriendshipsController < ApplicationController
+  def index
+    @friendships = {
+      outgoing: Friendship.where(user: current_user).to_a,
+      incoming: Friendship.where(friend: current_user).to_a,
+      mutuals: current_user.mutuals,
+    }
+  end
+
+  def new; end
+
   def create
     @friendship = FriendRequests::Send.call(
       from_user: params[:user_id],
       to_user:   params[:friend_id],
     )
-
-    render @friendship, status: :created
   end
 
   def accept
     @friendship = FriendRequests::Accept.call(
       friendship_id: params[:friendship_id],
     )
-
-    render @friendship, status: :created
   end
 
   private
