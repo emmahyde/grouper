@@ -4,6 +4,7 @@
 
 import { application } from "./application"
 
-import DashboardController from "./dashboard_controller"
+import FriendshipsController from "./friendships_controller.js"
 
-application.register("dashboard", DashboardController)
+application.register("friendships", FriendshipsController)
+

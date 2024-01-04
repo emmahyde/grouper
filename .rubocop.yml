@@ -32,3 +32,42 @@ Metrics/BlockLength:
 
 Rails/I18nLocaleTexts:
   Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Style/StabbyLambdaParentheses:
+  Enabled: false
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false

@@ -1,15 +1,27 @@
+# == Schema Information
+#
+# Table name: friendships
+#
+#  user_id    :bigint           not null, primary key
+#  friend_id  :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  mutual     :boolean          default(FALSE), not null
+#
 require 'rails_helper'
 
 describe Friendship do
   describe 'validations' do
     let!(:user) { create :user, :with_friends }
 
-    describe ':user_is_not_friend' do
-      it 'disallows duplicate values, as a primary key' do
-        expect { user.friends.push(user) }.to raise_error(
-          ActiveRecord::RecordInvalid,
-          "Validation failed: Friend can't be the same as the user"
-        )
+    describe ':user_id' do
+      describe 'exclusion' do
+        it 'disallows duplicate values, as a primary key' do
+          expect { user.friends.push(user) }.to raise_error(
+            ActiveRecord::RecordInvalid,
+            "Validation failed: User can't be the same as the friend",
+          )
+        end
       end
     end
 

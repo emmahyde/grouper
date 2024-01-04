@@ -21,13 +21,11 @@
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
 !/tmp/pids/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
 !/storage/.keep
-/tmp/storage/*
 !/tmp/storage/.keep
 
 # Ignore assets.
@@ -35,3 +33,10 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
+
+.idea*
+.DS_Store
+.aider*
+
+app/assets/builds
+yarn-error.log

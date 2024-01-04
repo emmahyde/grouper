@@ -1,0 +1,24 @@
+<h1>This is another page</h1>
+<div><%= link_to "go to home page", root_path %></div>
+
+<div class="mt-2">
+  <%= form_with scope: :any, url: friendships_path do |form| %>
+    <%= form.submit 'Post something' %>
+  <% end %>
+  <turbo-frame id="messages">
+    <div>An empty message</div>
+  </turbo-frame>
+</div>
+
+<div class="mt-2">
+  <h2>Stimulus</h2>
+  <div data-controller="friendships">
+    <input data-friendships-target="name" type="text">
+    <button data-action="click->friendships#connect">
+      Connect
+    </button>
+    <span data-friendships-target="output">
+    </span>
+  </div>
+</div>
+

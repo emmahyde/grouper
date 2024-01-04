@@ -32,9 +32,30 @@ CREATE TABLE public.ar_internal_metadata (
 CREATE TABLE public.friendships (
     user_id bigint NOT NULL,
     friend_id bigint NOT NULL,
+    "[:user_id, :friend_id]" bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    mutual boolean DEFAULT false NOT NULL
 );
+
+
+--
+-- Name: friendships_[:user_id, :friend_id]_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public."friendships_[:user_id, :friend_id]_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: friendships_[:user_id, :friend_id]_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public."friendships_[:user_id, :friend_id]_seq" OWNED BY public.friendships."[:user_id, :friend_id]";
 
 
 --
@@ -146,6 +167,13 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
+-- Name: friendships [:user_id, :friend_id]; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.friendships ALTER COLUMN "[:user_id, :friend_id]" SET DEFAULT nextval('public."friendships_[:user_id, :friend_id]_seq"'::regclass);
+
+
+--
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -179,7 +207,7 @@ ALTER TABLE ONLY public.ar_internal_metadata
 --
 
 ALTER TABLE ONLY public.friendships
-    ADD CONSTRAINT friendships_pkey PRIMARY KEY (user_id, friend_id);
+    ADD CONSTRAINT friendships_pkey PRIMARY KEY ("[:user_id, :friend_id]");
 
 
 --
@@ -288,6 +316,7 @@ ALTER TABLE ONLY public.profiles
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240104144005'),
 ('20231215204045'),
 ('20231215161926'),
 ('20231213181516'),

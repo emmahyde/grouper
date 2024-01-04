@@ -32,6 +32,9 @@ gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production + to support Turbo
 gem 'redis', '>= 4.0.1'
 
+# strong_parameters typed replacement
+# gem 'typed_params'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
@@ -49,11 +52,12 @@ group :test do
 end
 
 group :development do
+  gem 'irb', '1.6.2'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'foreman'
   gem 'hotwire-livereload', '~> 1.3'
+  gem 'yard', '~> 0.9.34', require: false
 end
 
 group :test, :development do
