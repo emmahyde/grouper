@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'feeds#main_feed'
+  mount ActionCable.server => '/cable'
 
-  resources :users, only: %i[new create]
-  resources :sessions, only: %i[new create destroy]
-  resources :posts
+  root 'feeds#main_feed'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -22,7 +20,9 @@ Rails.application.routes.draw do
   delete 'logout',     to: 'sessions#destroy'
 
   # visitable pages
-  resources :users
+  resources :users, only: %i[new create show]
+  resources :sessions, only: %i[new create destroy]
+  resources :posts
   resources :friendships do
     collection do
       post :accept
