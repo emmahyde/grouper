@@ -32,14 +32,14 @@ class Friendship < ApplicationRecord
   # and then will only query if it has not been instantiated in memory
   # this is "lazy" right now
   def inverse
-    @inverse ||= Friendship.find(inverse_pk)
+    @inverse ||= Friendship.find(inverse_pk) if mutual
   rescue ActiveRecord::RecordNotFound
-    nil
+    nil # find raises an error, so we want to return nil if not found
   end
 
   private
 
   def inverse_pk
-    [friend.id, user.id]
+    [friend.id, user.id] if mutual
   end
 end

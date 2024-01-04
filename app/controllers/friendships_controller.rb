@@ -1,31 +1,41 @@
 class FriendshipsController < ApplicationController
   def index
     @friendships = {
-      outgoing: Friendship.where(user: current_user).to_a,
-      incoming: Friendship.where(friend: current_user).to_a,
-      mutuals: current_user.mutuals,
+      outgoing: current_user.outgoing_friend_requests,
+      incoming: current_user.incoming_friend_requests,
+      mutuals: current_user.mutual_friendships,
     }
+
+    render @friendships, status: :ok
   end
 
   def new; end
 
   def create
     @friendship = FriendRequests::Send.call(
-      from_user: params[:user_id],
-      to_user:   params[:friend_id],
+      from_user: current_user,
+      to_user:   User.find(create_params[:to_user_id]),
     )
+
+    render @friendship, status: :created
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { error: e.message }, status: :bad_request
   end
 
   def accept
     @friendship = FriendRequests::Accept.call(
-      friendship_id: params[:friendship_id],
+      friendship: Friendship.find(accept_params[:friendship_id]),
     )
+
+    render @friendship, status: :created
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { error: e.message }, status: :bad_request
   end
 
   private
 
   def create_params
-    params.permit(:from_user_id, :to_user_id)
+    params.permit(:to_user_id)
   end
 
   def accept_params

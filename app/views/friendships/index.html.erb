@@ -3,7 +3,7 @@
     Incoming Requests:
   </h1>
 
-  <% current_user.incoming_friend_requests.each do |friendship| %>
+  <% @friendships[:incoming].each do |friendship| %>
     <%= render 'friendship', friendship: %>
   <% end %>
 
@@ -11,7 +11,7 @@
     Outgoing Requests:
   </h1>
 
-  <% current_user.outgoing_friend_requests.each do |friendship| %>
+  <% @friendships[:outgoing].each do |friendship| %>
     <%= render 'friendship', friendship: %>
   <% end %>
 
@@ -19,15 +19,7 @@
     Friends:
   </h1>
 
-  <% current_user.mutuals.each do |friendship| %>
+  <% @friendships[:mutuals].each do |friendship| %>
     <%= render 'friendship', friendship: %>
   <% end %>
 </div>
-
-<!--<div class="text-center align-middle">-->
-<!--  <h1 class="font-bold text-4xl text-blue-500">-->
-<!--    Friendships#create-->
-<!--  </h1>-->
-
-<!--  <p class="italic text-xs">-->
-<!--    <span class="font-bold">-->

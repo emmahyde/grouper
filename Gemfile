@@ -52,6 +52,7 @@ group :test do
 end
 
 group :development do
+  gem 'irb', '1.6.2'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'

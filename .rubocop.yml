@@ -68,3 +68,6 @@ RSpec/LetSetup:
 
 Style/ArgumentsForwarding:
   Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false

@@ -2,8 +2,8 @@ module FriendRequests
   class Accept
     include Serviceable
 
-    def initialize(friendship_id:)
-      @friendship = Friendship.find(friendship_id)
+    def initialize(friendship:)
+      @friendship = friendship
     end
 
     def call

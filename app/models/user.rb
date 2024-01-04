@@ -16,11 +16,6 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :posts
 
-  # TODO: when adding the below association, we may need to rework the others
-  #       so that they make a basic amount of sense - `friends` are really just
-  #       users that have a mutual friend request
-  # has_many :incoming_friend_requests, through: :friendships, foreign_key: :friend_id
-
   validates :email, uniqueness: true
 
   def incoming_friend_requests
@@ -32,7 +27,8 @@ class User < ApplicationRecord
   end
 
   def mutual_friendships
-    incoming_friendship_links.where(mutual: true)
+    # right now only shows current_user's side
+    outgoing_friendship_links.where(mutual: true)
   end
 
   private
@@ -48,5 +44,4 @@ class User < ApplicationRecord
   def all_friendship_links
     outgoing_friendship_links + incoming_friendship_links
   end
-
 end

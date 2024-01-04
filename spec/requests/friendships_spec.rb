@@ -1,19 +1,37 @@
 require 'rails_helper'
 
-describe FriendshipsController, type: :request do
-  describe '#create' do
+describe 'Friendships' do
+  let(:user_one) { create :user, password: 'password' }
+  let(:user_two) { create :user }
+
+  before do
+    sign_in_as(user_one)
+  end
+
+  describe '#index: GET /' do
+    subject do
+      get friendships_url
+    end
+
+    let!(:friendship) { create :friendship, user: user_one, friend: user_two }
+
+    it 'returns 200' do
+      subject
+      expect(response).to have_http_status :ok
+      expect(response.body).to include user_one.email
+      expect(response.body).to include user_two.email
+    end
+  end
+
+  describe '#create: POST /' do
     subject do
       post friendships_url,
         params: {
-          from_user_id: user_one.id,
-          to_user_id:   user_two.id,
+          to_user_id: user_two.id,
         }
     end
 
     context 'when both users exist' do
-      let(:user_one) { create :user }
-      let(:user_two) { create :user }
-
       it 'returns 201' do
         expect { subject }.to change(Friendship, :count).by 1
         expect(response).to have_http_status :created
@@ -23,7 +41,7 @@ describe FriendshipsController, type: :request do
     end
   end
 
-  describe '#accept' do
+  describe '#accept: POST /accept' do
     subject do
       post accept_friendships_url,
         params: {

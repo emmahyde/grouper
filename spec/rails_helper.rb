@@ -33,10 +33,15 @@ end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods # add factories to rspec context
 
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
+  # Include your helper methods by including the module
+  config.include RequestHelper, type: :request
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
+  # config.fixture_paths = [
+  #   Rails.root.join('spec/fixtures')
+  # ]
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

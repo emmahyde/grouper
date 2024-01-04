@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Sessions' do
+describe 'Sessions' do
   describe 'POST /login' do
     let!(:user) { User.create(email: 'user@example.com', password: 'password') }
 
