@@ -33,6 +33,8 @@ class Friendship < ApplicationRecord
   # this is "lazy" right now
   def inverse
     @inverse ||= Friendship.find(inverse_pk)
+  rescue ActiveRecord::RecordNotFound
+    nil
   end
 
   private

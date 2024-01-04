@@ -12,8 +12,8 @@ module FriendRequests
       )
 
       Friendship.create!(
-        user:   friendship.friend,
-        friend: friendship.user,
+        user:   @friendship.friend,
+        friend: @friendship.user,
         mutual: true,
       )
     end
