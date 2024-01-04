@@ -6,12 +6,15 @@ module FriendRequests
       @friendship = Friendship.find(friendship_id)
     end
 
-    attr_reader :friendship
-
     def call
+      @friendship.update!(
+        mutual: true,
+      )
+
       Friendship.create!(
         user:   friendship.friend,
         friend: friendship.user,
+        mutual: true,
       )
     end
   end

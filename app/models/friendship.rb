@@ -6,10 +6,13 @@
 #  friend_id  :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  mutual     :boolean          default(FALSE), not null
 
-# NOTE: the PK of `friendships` is a composite of [user_id, friend_id].
-#       the inverse of:  Friendship<id: [1, 2], user_id: 1, friend_id: 2>
-#       is:              Friendship<id: [2, 1], user_id: 2, friend_id: 1>
+# == Composite Primary Key: Notes
+# the PK of `friendships` is a composite of [user_id, friend_id].
+# the inverse of:  Friendship<id: [1, 2], user_id: 1, friend_id: 2>
+# is:              Friendship<id: [2, 1], user_id: 2, friend_id: 1>
+#
 class Friendship < ApplicationRecord
   self.primary_key = %i[user_id friend_id]
 
@@ -18,7 +21,10 @@ class Friendship < ApplicationRecord
   belongs_to :friend, class_name: 'User'
 
   validates :user_id, uniqueness: { scope: [:friend_id] }
-  validates :user_id, exclusion: { in: ->(friendship) { [friendship.friend_id] } }
+  validates :user_id, exclusion: {
+    in: ->(friendship) { [friendship.friend_id] },
+    message: "can't be the same as the friend",
+  }
 
   # returns nil if the Friendship has not been accepted
   # otherwise returns the Friendship

@@ -2,13 +2,12 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  email      :string           not null
-#  password_digest :string      not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  
+#  id              :bigint           not null, primary key
+#  name            :string
+#  email           :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string
 #
 class User < ApplicationRecord
   has_secure_password
@@ -25,24 +24,15 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def incoming_friend_requests
-    incoming_friendship_links - mutuals
+    incoming_friendship_links.where(mutual: false)
   end
 
   def outgoing_friend_requests
-    outgoing_friendship_links.except do |link|
-
-      # TODO: LMAO try again later
-      #
-      mutuals = outgoing_friendship_links.except { |friendship| incoming_friendship_links.include?  }
-    end
-    outgoing_friendship_links.except { |f| }
+    outgoing_friendship_links.where(mutual: false)
   end
 
-
-  def mutuals
-    outgoing_friendship_links.each_with_object([]) do |friendship, memo|
-      memo << friendship if incoming_friendship_links.include? friendship.mutual
-    end
+  def mutual_friendships
+    incoming_friendship_links.where(mutual: true)
   end
 
   private
@@ -54,4 +44,9 @@ class User < ApplicationRecord
   def incoming_friendship_links
     Friendship.where(friend: self)
   end
+
+  def all_friendship_links
+    outgoing_friendship_links + incoming_friendship_links
+  end
+
 end

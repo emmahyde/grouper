@@ -33,7 +33,8 @@ CREATE TABLE public.friendships (
     user_id bigint NOT NULL,
     friend_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    mutual boolean DEFAULT false NOT NULL
 );
 
 
@@ -288,6 +289,7 @@ ALTER TABLE ONLY public.profiles
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240104144005'),
 ('20231215204045'),
 ('20231215161926'),
 ('20231213181516'),
