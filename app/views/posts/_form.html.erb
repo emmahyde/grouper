@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :text, style: "display: block" %>
-    <%= form.text_area :text %>
+  <div class='p-4 border-x border-b border-yellow-600'>
+    <%= form.text_area :text, maxlength: "280", placeholder: "Detail Your Labors", class: "w-full resize-none p-2" %>
+
+    <div class='text-right'>
+      <%= form.submit "Poast", class: "rounded-2xl ml-full py-1 px-2 bg-yellow-600 text-white" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  
 <% end %>

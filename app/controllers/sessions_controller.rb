@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    return unless current_user
+
+    redirect_to root_path
+  end
 
   def create
     user = User.find_by(email: params[:email])
