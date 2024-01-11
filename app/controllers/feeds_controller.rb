@@ -8,7 +8,6 @@ class FeedsController < ApplicationController
                  .page(params[:page])
                  .per(15)
 
-    logger.debug @posts[0]
     respond_to do |format|
       format.html do
         @post = Post.new
