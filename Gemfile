@@ -44,6 +44,9 @@ gem 'bootsnap', require: false
 # bcrypt for password hashing
 gem 'bcrypt', '~> 3.1.7'
 
+# kaminari for "pagination" in our endless scroll
+gem 'kaminari'
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
@@ -56,6 +59,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'foreman'
   gem 'hotwire-livereload', '~> 1.3'
   gem 'yard', '~> 0.9.34', require: false
 end

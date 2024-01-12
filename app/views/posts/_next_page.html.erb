@@ -1,0 +1,7 @@
+<%= render partial: 'posts/posts', locals: { posts: posts } %>
+
+  <% unless posts.last_page? %>
+    <%= turbo_frame_tag 'next_page', src: main_feed_path(page: posts.next_page), loading: 'lazy' do %>
+      <%= render 'shared/loading' %>
+    <% end %>
+  <% end %>

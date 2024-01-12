@@ -30,6 +30,9 @@ FactoryBot/ConsistentParenthesesStyle:
 Metrics/BlockLength:
   Max: 200
 
+Metrics/MethodLength:
+  Enabled: false
+
 Rails/I18nLocaleTexts:
   Enabled: false
 

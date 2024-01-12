@@ -1,0 +1,13 @@
+.marble-background {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    background-image:
+      radial-gradient(circle at 100px 100px, rgba(255,255,255,0.4), rgba(255,255,255,0) 60%),
+      radial-gradient(circle at 300px 300px, rgba(255,255,255,0.5), rgba(255,255,255,0) 70%),
+      radial-gradient(circle at 500px 100px, rgba(255,255,255,0.3), rgba(255,255,255,0) 50%),
+      linear-gradient(45deg, rgba(0,0,0,0.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0.03)),
+      linear-gradient(-45deg, rgba(0,0,0,0.03) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0.03));
+    background-size: 600px 600px, 600px 600px, 600px 600px, 100px 100px, 100px 100px;
+    background-position: 0 0, 100px 100px, 300px 300px, 0 0, 50px 50px;
+  }

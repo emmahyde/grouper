@@ -1,12 +1,10 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Text:</strong>
-    <%= post.text %>
-  </p>
-
+<div id="<%= dom_id post %>" class='p-4 shadow-lg rounded-sm hover:bg-slate-50/50'>
   <p>
     <strong>User:</strong>
     <%= post.user_id %>
   </p>
-
+  <p>
+    <strong>Text:</strong>
+    <%= post.text %>
+  </p>
 </div>

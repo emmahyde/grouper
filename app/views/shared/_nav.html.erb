@@ -1,8 +1,8 @@
-<nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Profile'%></li>
-      <li><%= link_to 'Friendships', friendships_path %></li>
-      <li><%= link_to 'Logout', logout_path%></li>
-    </ul>
-  </nav>
+<nav class="fixed">
+  <ul class='divide-y divide-yellow-600 m-4'>
+    <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Home', root_path %></li>
+    <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Profile'%></li>
+    <li><%= link_to 'Friendships', friendships_path %></li>
+    <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Logout', logout_path%></li>
+  </ul>
+</nav>

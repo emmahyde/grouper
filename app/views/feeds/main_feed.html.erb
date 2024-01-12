@@ -1,14 +1,13 @@
 <%= render 'shared/nav' %>
-<div id="main-feed">
+<div id='main-feed' class='marble-background max-w-lg mr-a ml-48'>
+  <div class='flex space-x-24 border-x border-b border-yellow-600 px-24 py-4 divide divide-inherit'>
     <h1>Main Feed</h1>
-    <div class="new-post">
-        <%= render 'posts/form', post: @new_post %>
-    </div>  
-    <% @posts.each do |post| %>
-    <div>
-        <% @posts.each do |post| %>
-            <%= render 'posts/post', post: post %>
-        <% end %>
-    </div>
-    <% end %>
+    <h1 class='opacity-50'>Personal Feed</h1>
+  </div>
+  <div class='new-post'>
+    <%= render 'posts/form', post: @new_post %>
+  </div>  
+  <%= turbo_frame_tag 'posts', class: 'marble-background' do %>
+    <%= render 'posts/posts', posts: @posts %>
+  <% end %>
 </div>
