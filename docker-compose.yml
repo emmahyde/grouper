@@ -1,0 +1,40 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails:cached
+    working_dir: /rails
+    environment:
+      RAILS_ENV: ${RAILS_ENV:-development}
+      RAKE_ENV: ${RAKE_ENV:-development}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      POSTGRES_DB: ${POSTGRES_DB:-grouper_development}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      TZ: ${TZ:-EST}
+    depends_on:
+      - gem_cache
+      - redis
+      - db
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-grouper_development}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  gem_cache:
+    image: busybox
+    volumes:
+      - /gem_cache
