@@ -22,7 +22,16 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   # visitable pages
-  resources :users, only: %i[new create show]
+  resources :users, only: %i[new create show] do
+    resource :profile, except: %i[destroy new] do
+      collection do
+        get :posts
+        get :friends
+        get :media
+      end
+    end
+  end
+
   resources :sessions, only: %i[new create destroy]
   resources :posts
   resources :friendships do

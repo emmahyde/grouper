@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:user_id]).joins(:profile)
+  end
+
   def new
     @user = User.new
   end

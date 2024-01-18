@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'User was successfully logged in'
+      redirect_to root_path, status: :see_other, notice: 'User was successfully logged in'
 
     else
       flash.now[:alert] = 'Invalid email or password'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
