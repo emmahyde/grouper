@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
       format.html do
         @profile = Profile.includes(user: :posts).find_by(user_id: params[:user_id])
         @post = Post.new
+
+        render :show # implicit if removed bc name match, but wanted to be explicit while debugging
       end
 
       format.turbo_stream do
@@ -17,19 +19,13 @@ class ProfilesController < ApplicationController
   end
 
   def friends
-    @user_id = params[:user_id]
-    @friendships = User.find(@user_id).mutual_friendships.page(params[:page]).per(15)
     respond_to do |format|
-      # TODO: next_page needs to be abstracted into a shared file if possible.
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'content',
-          partial: 'friendships/next_page',
-          locals: { friendships: @friendships }
-        )
+      format.html do
+        @user_id = params[:user_id]
+        @friendships = User.find(@user_id).mutual_friendships.page(params[:page]).per(15)
+
+        render :friends # implicit if removed bc name match, but wanted to be explicit while debugging
       end
-      # This shouldnt be necessary, we're using a turbo frame
-      # format.html { redirect_to user_profile_path(params[:user_id]) }
     end
   end
 
