@@ -14,7 +14,11 @@ class User < ApplicationRecord
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :posts
+  has_many :posts, dependent: :nullify
+
+  has_one :profile, dependent: :destroy
+
+  after_create :create_user_profile
 
   validates :email, uniqueness: true
 
@@ -32,6 +36,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  def create_user_profile
+    build_profile.save
+  end
 
   def outgoing_friendship_links
     Friendship.where(user: self)
