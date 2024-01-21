@@ -12,14 +12,7 @@ class FeedsController < ApplicationController
       format.html do
         @post = Post.new
       end
-
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'next_page',
-          partial: 'posts/next_page',
-          locals: { posts: @posts }
-        )
-      end
+      format.turbo_stream
     end
   end
 

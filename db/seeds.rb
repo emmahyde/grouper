@@ -22,7 +22,7 @@ users.each do |user|
   profile.update(description: "My name is #{user.name}, and this is my profile!",
 slug: "Vibing! This is #{user.name}'s slug!")
   # Create some posts
-  3.times do |i|
+  40.times do |i|
     Post.create!(text: "This is post number #{i + 1} by #{user.name}", user: user)
   end
   users.each do |friend|

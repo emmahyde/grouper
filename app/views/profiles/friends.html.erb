@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'content', class: 'marble-background' do %>
-  <div class="border-x border-yellow-600 divide-y divide-yellow-600">
+  <div id='friends' class="border-x border-yellow-600 divide-y divide-yellow-600">
     <%= render 'friendships/friendships', friendships: @friendships %>
   </div>
 <% end %>

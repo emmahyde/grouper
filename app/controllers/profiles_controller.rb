@@ -3,18 +3,13 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.html do
         @profile = Profile.includes(user: :posts).find_by(user_id: params[:user_id])
+        @posts = Post.where(user_id: @profile.user_id).page(params[:page]).per(15) if @profile
+
         @post = Post.new
 
         render :show # implicit if removed bc name match, but wanted to be explicit while debugging
       end
-
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'next_page',
-          partial: 'posts/next_page',
-          locals: { posts: @posts }
-        )
-      end
+      format.turbo_stream
     end
   end
 
@@ -26,6 +21,7 @@ class ProfilesController < ApplicationController
 
         render :friends # implicit if removed bc name match, but wanted to be explicit while debugging
       end
+      format.turbo_stream
     end
   end
 

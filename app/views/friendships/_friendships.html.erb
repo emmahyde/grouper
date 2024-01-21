@@ -1,5 +1,3 @@
-<div class="border-x border-yellow-600 divide-y divide-yellow-600">
-  <% friendships.each do |friendship| %>
-    <%= render 'friendships/friendship', friendship: friendship %>
-  <% end %>
-</div>
+<% friendships.each do |friendship| %>
+  <%= render 'friendships/friendship', friendship: friendship %>
+<% end %>
