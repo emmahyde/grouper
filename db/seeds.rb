@@ -31,4 +31,4 @@ slug: "Vibing! This is #{user.name}'s slug!")
   end
 end
 
-puts 'Rite of Database Seeding Complete'
+logger.info('Rite of Database Seeding Complete')
