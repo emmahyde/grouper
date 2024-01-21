@@ -48,7 +48,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
 
 # safety for production migrations!
-gem "strong_migrations"
+gem 'strong_migrations'
 
 group :test do
   gem 'database_cleaner-active_record'
