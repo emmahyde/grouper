@@ -60,7 +60,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'foreman'
   gem 'hotwire-livereload', '~> 1.3'
-  gem 'irb', '1.6.2'
   gem 'yard', '~> 0.9.34', require: false
 end
 
