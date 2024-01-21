@@ -47,9 +47,6 @@ gem 'bcrypt', '~> 3.1.7'
 # kaminari for "pagination" in our endless scroll
 gem 'kaminari'
 
-# safety for production migrations!
-gem 'strong_migrations'
-
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
