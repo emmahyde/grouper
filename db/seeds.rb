@@ -27,7 +27,11 @@ slug: "Vibing! This is #{user.name}'s slug!")
   end
   users.each do |friend|
     # Create friendship unless they are the same user
+<<<<<<< HEAD
     Friendship.create!(user: user, friend: friend, mutual: true) unless user == friend
+=======
+    Friendship.create!(user: user, friend: friend) unless user == friend
+>>>>>>> 255f7dea270df6761aa2050fa8f4aba57a5de1a5
   end
 end
 
