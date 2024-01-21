@@ -11,8 +11,6 @@ class ProfilesController < ApplicationController
       end
       format.turbo_stream
     end
-
-    User.joins(friendships: [friend: :profile]).first
   end
 
   def friends
