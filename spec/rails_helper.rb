@@ -31,6 +31,17 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  if Bullet.enable?
+    config.before do
+      Bullet.start_request
+    end
+
+    config.after do
+      Bullet.perform_out_of_channel_notifications if Bullet.notification?
+      Bullet.end_request
+    end
+  end
+
   config.include FactoryBot::Syntax::Methods # add factories to rspec context
 
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

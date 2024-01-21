@@ -47,6 +47,9 @@ gem 'bcrypt', '~> 3.1.7'
 # kaminari for "pagination" in our endless scroll
 gem 'kaminari'
 
+# safety for production migrations!
+gem 'strong_migrations'
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
@@ -55,16 +58,17 @@ group :test do
 end
 
 group :development do
-  gem 'irb', '1.6.2'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
   gem 'hotwire-livereload', '~> 1.3'
+  gem 'irb', '1.6.2'
   gem 'yard', '~> 0.9.34', require: false
 end
 
 group :test, :development do
+  gem 'bullet', '~> 7.1'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
