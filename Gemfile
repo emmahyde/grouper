@@ -55,6 +55,7 @@ group :test do
 end
 
 group :development do
+  gem 'active_record_doctor'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
