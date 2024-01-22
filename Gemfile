@@ -55,7 +55,6 @@ group :test do
 end
 
 group :development do
-  gem 'irb', '1.6.2'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -65,6 +64,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'bullet', '~> 7.1'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
