@@ -12,6 +12,12 @@ Rails.application.configure do
     Bullet.raise         = true # raise an error if n+1 query occurs
   end
 
+  # unlogged tables can't be backed up or replicated, but are much faster,
+  # perfect for our testing environment
+  ActiveSupport.on_load :active_record_postgresqladapter do
+    self.create_unlogged_tables = true
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.
