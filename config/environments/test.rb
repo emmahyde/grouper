@@ -6,12 +6,19 @@ require 'active_support/core_ext/integer/time'
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+
   # unlogged tables can't be backed up or replicated, but are much faster, 
   # perfect for our testing environment
   ActiveSupport.on_load :active_record_postgresqladapter do
     self.create_unlogged_tables = true
   end
   
+  config.after_initialize do
+    Bullet.enable        = true
+    Bullet.bullet_logger = true
+    Bullet.raise         = true # raise an error if n+1 query occurs
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.
