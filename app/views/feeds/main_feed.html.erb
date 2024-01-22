@@ -7,7 +7,8 @@
   <div class='new-post'>
     <%= render 'posts/form', post: @new_post %>
   </div>  
-  <%= turbo_frame_tag 'posts', class: 'marble-background' do %>
-    <%= render 'posts/posts', posts: @posts %>
-  <% end %>
+  <div id='posts' class='marble-background'>
+    <%= render partial: 'posts/post', collection: @posts %>
+  </div>
+  <%= turbo_frame_tag 'loading-posts', src: main_feed_path(format: :turbo_stream, page: @posts.next_page), loading: 'lazy' %>
 </div>

@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
   def main_feed
     # This is so we have the users' name with the post instead of just their id's.
     @posts = Post.joins(:user)
-                 .select('posts.*, users.name as user_name')
+                 .select('posts.*, users.id as user_id, users.name as user_name')
                  .order(created_at: :desc)
                  .page(params[:page])
                  .per(15)
@@ -12,14 +12,7 @@ class FeedsController < ApplicationController
       format.html do
         @post = Post.new
       end
-
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'next_page',
-          partial: 'posts/next_page',
-          locals: { posts: @posts }
-        )
-      end
+      format.turbo_stream
     end
   end
 

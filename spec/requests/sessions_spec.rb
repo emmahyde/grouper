@@ -25,7 +25,7 @@ describe 'Sessions' do
       end
 
       it 're-renders the login template' do
-        expect(response).to have_http_status(:ok)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
