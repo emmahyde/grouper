@@ -1,0 +1,9 @@
+<%= turbo_stream.append 'content' do %>
+  <%= render partial: 'friendships/friendships', collection: @friendships %>
+<% end %>
+
+<% unless @friendships.last_page? %>
+    <%= turbo_stream.replace 'loading-friendships' do %>
+        <%= turbo_frame_tag 'loading-friendships', src: friends_user_profile_path(page: @friendships.next_page, format: :turbo_stream), loading: :lazy %>
+    <% end %>
+<% end %>
