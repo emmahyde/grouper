@@ -20,7 +20,7 @@ FactoryBot.define do
 
     trait :with_posts do
       after :create do |user|
-        3.times { create :post, user: user, text: 'This is a post.' }
+        create_list(:post, 3, user: user, text: 'This is a post.')
       end
     end
   end
