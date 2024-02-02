@@ -11,9 +11,16 @@ FactoryBot.define do
       end
     end
 
+    trait :with_mutual_friends do
+      after :create do |user|
+        create :friendship, user: user, friend: create(:user), mutual: true
+        create :friendship, user: user, friend: create(:user), mutual: true
+      end
+    end
+
     trait :with_posts do
       after :create do |user|
-        create :post, user: user, text: 'This is a post.'
+        create_list(:post, 3, user: user, text: 'This is a post.')
       end
     end
   end

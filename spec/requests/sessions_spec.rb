@@ -30,7 +30,7 @@ describe 'Sessions' do
     end
   end
 
-  describe 'DELETE /destroy', skip: 'currently broken' do
+  describe 'DELETE /destroy' do
     before { delete logout_path }
 
     it 'removes the user id from the session' do

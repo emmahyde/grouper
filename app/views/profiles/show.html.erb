@@ -30,9 +30,8 @@
     <%= turbo_frame_tag 'content', class: 'marble-background' do %>
       <div id='posts'>
         <%= render partial: 'posts/post', collection: @posts %>
+        <%= turbo_frame_tag 'loading-posts', src: user_profile_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
       </div>
     <% end %>
   </div>
-  
 </div>
-<div id='settings' class='fixed right-8'>Settings</div>

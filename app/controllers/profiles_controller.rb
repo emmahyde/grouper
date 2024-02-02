@@ -1,10 +1,9 @@
 class ProfilesController < ApplicationController
   def show
+    @profile = Profile.includes([:user]).find_by(user_id: params[:user_id])
+    @posts = Post.where(user_id: @profile.user_id).includes([:user]).page(params[:page]).per(15) if @profile
     respond_to do |format|
       format.html do
-        @profile = Profile.includes(user: :posts).find_by(user_id: params[:user_id])
-        @posts = Post.where(user_id: @profile.user_id).page(params[:page]).per(15) if @profile
-
         @post = Post.new
 
         render :show # implicit if removed bc name match, but wanted to be explicit while debugging
@@ -14,11 +13,10 @@ class ProfilesController < ApplicationController
   end
 
   def friends
+    @user_id = params[:user_id]
+    @friendships = User.find(@user_id).mutual_friendships.includes(friend: :profile).page(params[:page]).per(15)
     respond_to do |format|
       format.html do
-        @user_id = params[:user_id]
-        @friendships = User.find(@user_id).mutual_friendships.includes(friend: :profile)
-
         render :friends # implicit if removed bc name match, but wanted to be explicit while debugging
       end
       format.turbo_stream

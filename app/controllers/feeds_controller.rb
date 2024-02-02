@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
   def main_feed
     # This is so we have the users' name with the post instead of just their id's.
     @posts = Post.joins(:user)
+                 .includes(:user)
                  .select('posts.*, users.id as user_id, users.name as user_name')
                  .order(created_at: :desc)
                  .page(params[:page])
