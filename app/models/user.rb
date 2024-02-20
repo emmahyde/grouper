@@ -4,6 +4,8 @@
 #
 #  id              :bigint           not null, primary key
 #  name            :string
+#  display_name    :string
+#  unique_name     :string
 #  email           :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -21,6 +23,9 @@ class User < ApplicationRecord
   after_create :create_user_profile
 
   validates :email, uniqueness: true
+
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
 
   def incoming_friend_requests
     incoming_friendship_links.where(mutual: false)

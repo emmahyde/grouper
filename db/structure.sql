@@ -241,7 +241,9 @@ CREATE TABLE public.users (
     email character varying NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    password_digest character varying
+    password_digest character varying,
+    display_name character varying NOT NULL,
+    unique_name character varying NOT NULL
 );
 
 
@@ -505,6 +507,7 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20240220025248'),
 ('20240220014547'),
+('20240216220435'),
 ('20240104144005'),
 ('20231215204045'),
 ('20231215161926'),

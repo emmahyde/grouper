@@ -27,10 +27,8 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
-    @profile = @user.profile
-    # @user = User.find(params[:id])
-    # @profile = @user.profile
+    @profile = Profile.includes([:user]).find_by(user_id: params[:user_id])
+    @user = @profile.user
     respond_to do |format|
       format.html do
         render :edit
@@ -39,13 +37,21 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    user = current_user
-    @profile = Profile.find_by(user_id: user.id)
+    @profile = Profile.find_by(user_id: params[:user_id])
+    @user = @profile.user
+
+    update_result = ActiveRecord::Base.transaction do
+      @user.update(user_params)
+      @profile.update(profile_params)
+    end
+
     respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to profile_url(@profile) }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
+      format.html do
+        if update_result
+          redirect_to user_profile_path(@user)
+        else
+          render :edit, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -54,6 +60,10 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:user_id, :slug, :picture, :description)
+  end
+
+  def user_params
+    params.require(:user).permit(:display_name)
   end
 
   def authorize_user

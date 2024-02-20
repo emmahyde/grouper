@@ -1,7 +1,6 @@
 <%= render 'shared/nav' %>
 <div id='profile' class='marble-background max-w-xl mr-a ml-48'>
   <%= turbo_frame_tag 'edit-profile-modal' do %>
-    <div>modal</div>
   <% end %>
   <div id='hero'>
     <div id ='banner' class='bg-gray-400 opacity-50' style="height: 250px;">
@@ -15,12 +14,12 @@
         <div id='friend-request-button' class='absolute -top-4 -right-2 '>
           <span class='bg-blue-200 py-1 px-2 rounded-full opacity-50'>Request Friend</span>
           <% if current_user == @profile.user %>
-            <%= link_to 'Edit', edit_user_profile_path(user_id: @user.id), id:'edit-profile-button', class:'bg-blue-200 py-2 px-2 rounded-full w-9', data: {turbo_frame: 'edit-profile-modal'}%>
+            <%= link_to 'Edit', edit_user_profile_path(@user), id:'edit-profile-button', class:'bg-blue-200 py-2 px-2 rounded-full w-9', data: {turbo_frame: 'edit-profile-modal'}%>
           <% end %>
         </div>
       </div>
       <div id='about-body' class='relative pt-14'>
-        <div id='name' class='font-bold font-sans'><%= @profile.user.name%> - <%=@profile.slug%></div>
+        <div id='name' class='font-bold font-sans'><%= @profile.user.display_name%> - <%=@profile.slug%></div>
         <div id='about-text' class='mt-4'><%= @profile.description%></div>
       </div>
     </div>
