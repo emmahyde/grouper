@@ -10,9 +10,10 @@
 User.destroy_all
 Post.destroy_all
 
-user1 = User.create!(name: 'Alice', email: 'alice@example.com', password: '1234', password_confirmation: '1234')
-user2 = User.create!(name: 'Bob', email: 'bob@example.com', password: '1234', password_confirmation: '1234')
-user3 = User.create!(name: 'Charlie', email: 'charlie@example.com', password: '1234', password_confirmation: '1234')
+user1 = User.create!(unique_name: 'Alice', email: 'alice@example.com', password: '1234', password_confirmation: '1234')
+user2 = User.create!(unique_name: 'Bob', email: 'bob@example.com', password: '1234', password_confirmation: '1234')
+user3 = User.create!(unique_name: 'Charlie', email: 'charlie@example.com', password: '1234',
+password_confirmation: '1234')
 
 users = [user1, user2, user3]
 

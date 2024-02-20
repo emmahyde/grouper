@@ -242,8 +242,8 @@ CREATE TABLE public.users (
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
     password_digest character varying,
-    display_name character varying NOT NULL,
-    unique_name character varying NOT NULL
+    unique_name character varying NOT NULL,
+    display_name character varying
 );
 
 
@@ -451,6 +451,13 @@ CREATE UNIQUE INDEX index_users_on_email ON public.users USING btree (email);
 
 
 --
+-- Name: index_users_on_unique_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_users_on_unique_name ON public.users USING btree (unique_name);
+
+
+--
 -- Name: posts fk_rails_5b5ddfd518; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -505,9 +512,9 @@ ALTER TABLE ONLY public.profiles
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240220152040'),
 ('20240220025248'),
 ('20240220014547'),
-('20240216220435'),
 ('20240104144005'),
 ('20231215204045'),
 ('20231215161926'),
