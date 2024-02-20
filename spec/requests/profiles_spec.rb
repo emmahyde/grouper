@@ -58,7 +58,7 @@ describe 'Profiles' do
       # end
 
       it 'shows the mutual friendships of the current_user' do
-        expect(response.body).to include(user_one.friends.first.name)
+        expect(response.body).to include(user_one.friends.first.display_name)
       end
     end
 
@@ -73,7 +73,7 @@ describe 'Profiles' do
       end
 
       it 'shows the mutual friendships of the selected user' do
-        expect(response.body).to include(user_two.friends.first.name)
+        expect(response.body).to include(user_two.friends.first.display_name)
       end
     end
   end

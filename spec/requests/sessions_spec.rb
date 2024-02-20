@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'Sessions' do
   describe 'POST /login' do
-    let!(:user) { User.create(email: 'user@example.com', password: 'password') }
+    let!(:user) { create(:user) }
 
     context 'with valid credentials' do
       it 'logs the user in and redirects to the root page' do
-        post login_path, params: { password: 'password', email: user.email }
+        post login_path, params: { password: user.password, email: user.email }
         expect(response).to redirect_to(root_path)
       end
     end
