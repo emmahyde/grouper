@@ -18,7 +18,7 @@ describe 'Friendships' do
     it 'returns 200' do
       subject
       expect(response).to have_http_status :ok
-      expect(response.body).to include user_two.name
+      expect(response.body).to match(Regexp.new(user_two.display_name.to_s, Regexp::MULTILINE))
     end
   end
 
@@ -34,7 +34,7 @@ describe 'Friendships' do
       it 'returns 201' do
         expect { subject }.to change(Friendship, :count).by 1
         expect(response).to have_http_status :created
-        expect(response.body).to include user_two.name
+        expect(response.body).to include user_two.display_name
       end
     end
   end
@@ -55,7 +55,7 @@ describe 'Friendships' do
       it 'returns 201' do
         expect { subject }.to change(Friendship, :count).by 1
         expect(response).to have_http_status :created
-        expect(response.body).to include(user_one.name)
+        expect(response.body).to include(user_one.display_name)
       end
     end
   end

@@ -10,7 +10,11 @@ describe 'Users' do
 
   describe 'GET /create' do
     before do
-      post registration_path, params: { user: { password: 'password', email: 'user@example.com' } }
+      post registration_path, params: { user: {
+        unique_name: 'TestUser', password: 'password',
+        password_confirmation: 'password',
+        email: 'user@example.com'
+      } }
     end
 
     it 'redirects to home page' do

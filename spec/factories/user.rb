@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :user do
-    name     { Faker::Name.name }
-    email    { Faker::Internet.email }
-    password { Faker::Internet.password }
+    unique_name           { "#{Faker::Name.name}" }
+    email                 { Faker::Internet.email }
+    password              { Faker::Internet.password }
+    password_confirmation { password }
 
     trait :with_friends do
       after :create do |user|
