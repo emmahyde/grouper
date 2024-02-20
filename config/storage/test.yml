@@ -1,0 +1,11 @@
+s3_default:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+s3_banners:
+  service: Disk
+  root: <%= Rails.root.join("storage/banners") %>
+
+s3_profiles:
+  service: Disk
+  root: <%= Rails.root.join("storage/profiles") %>
