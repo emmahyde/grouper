@@ -1,0 +1,20 @@
+s3_default:
+  service: S3
+  access_key_id: <%= ENV['S3_GROUPER_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['S3_GROUPER_SECRET_ACCESS_KEY'] %>
+  region: us-east-1
+  bucket: s3-grouper-production
+
+s3_banners:
+  service: S3
+  access_key_id: <%= ENV['S3_GROUPER_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['S3_GROUPER_SECRET_ACCESS_KEY'] %>
+  region: us-east-1
+  bucket: s3-grouper-production-banners
+
+s3_profiles:
+  service: S3
+  access_key_id: <%= ENV['S3_GROUPER_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['S3_GROUPER_SECRET_ACCESS_KEY'] %>
+  region: us-east-1
+  bucket: s3-grouper-production-profiles

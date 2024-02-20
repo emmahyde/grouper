@@ -12,4 +12,9 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
+
+  has_one_attached :banner, service: :s3_banners
+  has_one_attached :picture, service: :s3_profiles do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100], preprocessed: true
+  end
 end

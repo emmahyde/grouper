@@ -50,6 +50,11 @@ gem 'kaminari'
 # safety for production migrations!
 gem 'strong_migrations'
 
+# ActiveStorage image variants
+gem 'image_processing', '>= 1.2'
+
+gem 'aws-sdk-s3', require: false
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
@@ -69,6 +74,7 @@ end
 
 group :test, :development do
   gem 'bullet', '~> 7.1'
+  gem 'dotenv', '~> 3.0'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
