@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>" class='p-4 shadow-lg rounded-sm hover:bg-slate-50/50'>
   <p>
     <strong>User:</strong>
-    <%= link_to post.user.display_name, profile_path(post.user.unique_name), data: { turbo_frame: '_top' } %>
+    <%= link_to post.user.display_name, profile_path(post.user), data: { turbo_frame: '_top' } %>
   </p>
   <p>
     <strong>Text:</strong>
