@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'edit-profile-modal' do %>
   <div class='fixed z-20 w-screen h-screen bg-gray-100/75'>
     <div class='fixed z-10 top-1/4 left-1/4 bg-gray-600 opacity-100 p-4 rounded-md'>
-    <%= form_with model: [@user, @profile], url: profile_path(@user.unique_name, format: :html), id: 'edit-profile-form', class:'w-96', data: {turbo: false} do |f| %>
+    <%= form_with model: [@user, @profile], url: profile_path(@user, format: :html), id: 'edit-profile-form', class:'w-96', data: {turbo: false} do |f| %>
       <div id='avatar' class='flex rounded-full -top-12 bg-purple-400 items-center justify-center' style='height: 100px; width: 100px;'>
         <%= image_tag 'default-avatar-fish.png', alt: 'Avatar', class: 'rounded-full'%>
       </div>
