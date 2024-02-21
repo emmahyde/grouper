@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.html do
         if update_result
-          redirect_to profile_path(@user.unique_name)
+          redirect_to profile_path(@user)
         else
           render :edit, status: :unprocessable_entity
         end
