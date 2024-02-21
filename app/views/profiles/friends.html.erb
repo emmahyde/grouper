@@ -2,7 +2,7 @@
   <div id='friends' class="border-x border-yellow-600 divide-y divide-yellow-600">
     <%= render 'friendships/friendships', friendships: @friendships %>
     <% unless @friendships.last_page? %>
-      <%= turbo_frame_tag 'loading-friendships', src: friends_profile_path(page: @friendships.next_page, format: :turbo_stream), loading: :lazy %>
+      <%= turbo_frame_tag 'loading-friendships', src: friends_profile_path(unique_name: @user.unique_name, page: @friendships.next_page, format: :turbo_stream), loading: :lazy %>
     <% end %>
   </div>
 <% end %>
