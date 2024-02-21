@@ -17,4 +17,8 @@ class Profile < ApplicationRecord
   has_one_attached :picture, service: :s3_profiles do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100], preprocessed: true
   end
+
+  def to_param
+    user.unique_name
+  end
 end

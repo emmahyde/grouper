@@ -22,14 +22,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   # visitable pages
-  resources :users, only: %i[new create show] do
-    resource :profile, except: %i[destroy new] do
-      collection do
-        get :posts
-        get :friends
-        get :media
-      end
-    end
+  resources :users, only: %i[new create show]
+  resource :profile, path: '/profile/:unique_name', except: %i[destroy new] do
+    get :posts, on: :member
+    get :friends, on: :member
+    get :media, on: :member
   end
 
   resources :sessions, only: %i[new create destroy]
