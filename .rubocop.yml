@@ -1,9 +1,3 @@
-##### EXAMPLE:
-# Style/Encoding:
-#  Enabled: false
-#
-#Layout/LineLength:
-#  Max: 99
 require:
   - rubocop-rails
   - rubocop-rspec
@@ -13,71 +7,64 @@ require:
 AllCops:
   NewCops: enable
 
+### STYLE ###
 Style/BlockComments:
   Enabled: false
-
 Style/HashSyntax:
   Enabled: false
-
 Style/Documentation:
   Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
-Metrics/BlockLength:
-  Max: 200
-
-Metrics/MethodLength:
-  Enabled: false
-
-Rails/I18nLocaleTexts:
-  Enabled: false
-
-Rails/NotNullColumn:
-  Enabled: false
-
-Layout/HashAlignment:
-  Enabled: false
-
 Style/StabbyLambdaParentheses:
   Enabled: false
-
-Layout/SpaceInLambdaLiteral:
-  Enabled: false
-
 Style/Lambda:
   Enabled: false
-
-RSpec/ExampleLength:
-  Enabled: false
-
-Layout/ArgumentAlignment:
-  Enabled: false
-
-RSpec/NamedSubject:
-  Enabled: false
-
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
 Style/TrailingCommaInArguments:
   Enabled: false
-
-RSpec/LetSetup:
-  Enabled: false
-
 Style/ArgumentsForwarding:
   Enabled: false
 
+### LAYOUT ###
+Layout/HashAlignment:
+  Enabled: false
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+Layout/ArgumentAlignment:
+  Enabled: false
+
+### RAILS ###
+Rails/I18nLocaleTexts:
+  Enabled: false
+Rails/NotNullColumn:
+  Enabled: false
+
+### METRICS ###
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 200
+Metrics/MethodLength:
+  Enabled: false
+
+### RSPEC ###
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
 RSpec/NestedGroups:
+  Enabled: false
+
+### FACTORYBOT ###
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+
+### NAMING CONVENTIONS ###
+Naming/MemoizedInstanceVariableName:
   Enabled: false
