@@ -31,6 +31,7 @@ gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production + to support Turbo
 gem 'redis', '>= 4.0.1'
+gem 'redis-rails'
 
 # strong_parameters typed replacement
 # gem 'typed_params'
