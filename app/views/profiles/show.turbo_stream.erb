@@ -3,7 +3,7 @@
 <% end %>
 
 <% unless @posts.last_page? %>
-    <%= turbo_stream.replace 'loading-posts' do %>
-        <%= turbo_frame_tag 'loading-posts', src: user_profile_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
-    <% end %>
+  <%= turbo_stream.replace 'loading-posts' do %>
+    <%= turbo_frame_tag 'loading-posts', src: main_feed_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
+  <% end %>
 <% end %>

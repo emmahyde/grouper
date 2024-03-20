@@ -1,7 +1,7 @@
-<%= render partial: 'friendships/friends', locals: { friends: friends } %>
+<%= render partial: 'friendships/friendships', locals: { friendships: friendships } %>
 
-  <% unless friendships.last_page? %>
-    <%= turbo_frame_tag 'next_page', src: friends_user_profile_path(user_id: @user_id, page: friendships.next_page), loading: 'lazy' do %>
-      <%= render 'shared/loading' %>
-    <% end %>
+<% unless friendships.last_page? %>
+  <%= turbo_frame_tag 'next_page', src: friends_profile_path(@user, page: friendships.next_page), loading: 'lazy' do %>
+    <%= render 'shared/loading' %>
   <% end %>
+<% end %>

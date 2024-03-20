@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '3.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.1.2'
@@ -31,6 +31,7 @@ gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production + to support Turbo
 gem 'redis', '>= 4.0.1'
+gem 'redis-rails'
 
 # strong_parameters typed replacement
 # gem 'typed_params'

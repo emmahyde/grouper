@@ -11,7 +11,7 @@ describe 'Profiles' do
   describe 'GET /profile' do
     context "when viewing the current_user's profile" do
       before do
-        get user_profile_path(user_id: user_one.id)
+        get profile_path user_one
       end
 
       it 'returns an :ok status code' do
@@ -19,13 +19,13 @@ describe 'Profiles' do
       end
 
       it "shows the list of the current_user's posts" do
-        expect(response.body).to include(user_one.posts.first.text)
+        expect(response.body).to include user_one.posts.first.text
       end
     end
 
     context "when viewing another user's profile" do
       before do
-        get user_profile_path(user_id: user_two.id)
+        get profile_path user_two
       end
 
       it 'returns an :ok status code' do
@@ -39,14 +39,10 @@ describe 'Profiles' do
   end
 
   describe 'GET /friends' do
-    before do
-      post login_url, params: { password: user_one.password, email: user_one.email }
-    end
-
     context "when on the current_user's profile" do
       before do
-        get user_profile_path(user_id: user_one.id)
-        get friends_user_profile_path(user_id: user_one.id)
+        get profile_path user_one
+        get friends_profile_path user_one
       end
 
       it 'returns an :ok status code' do
@@ -58,14 +54,14 @@ describe 'Profiles' do
       # end
 
       it 'shows the mutual friendships of the current_user' do
-        expect(response.body).to include(user_one.friends.first.display_name)
+        expect(response.body).to include user_one.friends.first.display_name
       end
     end
 
     context "when on another user's profile" do
       before do
-        get user_profile_path(user_id: user_two.id)
-        get friends_user_profile_path(user_id: user_two.id)
+        get profile_path user_two
+        get friends_profile_path user_two
       end
 
       it 'returns an :ok status code' do
@@ -73,7 +69,7 @@ describe 'Profiles' do
       end
 
       it 'shows the mutual friendships of the selected user' do
-        expect(response.body).to include(user_two.friends.first.display_name)
+        expect(response.body).to include user_two.friends.first.display_name
       end
     end
   end
