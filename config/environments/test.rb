@@ -6,6 +6,13 @@ require 'active_support/core_ext/integer/time'
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+
+  # unlogged tables can't be backed up or replicated, but are much faster, 
+  # perfect for our testing environment
+  ActiveSupport.on_load :active_record_postgresqladapter do
+    self.create_unlogged_tables = true
+  end
+  
   config.after_initialize do
     Bullet.enable        = true
     Bullet.bullet_logger = true
