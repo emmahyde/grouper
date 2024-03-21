@@ -1,25 +1,21 @@
-<%= turbo_frame_tag 'modal' do %>
-<!-- <%= render 'form', profile: @profile, user: @user %> -->
-    <%= tag.div id:'modal-overlay',
-                class:'fixed z-20 w-screen h-screen bg-gray-100/75',
+<%= tag.div class:'fixed z-20 w-screen h-screen bg-gray-100/75',
                 data: { controller: 'modal',
-                        modal_target: 'modal',
-                        action: 'turbo:submit-end->turbo-modal#submitEnd keydown.esc@window->modal#closeWithEscape click@window->modal#closeWithBackgroundClick'} do %>
+                        action: 'keyup.esc->modal#closeWithEscape click@window->modal#closeBackground'} do %>
     <div class='fixed z-10 top-1/4 left-1/4 bg-gray-600 opacity-100 p-4 rounded-md'>
-      <%= form_with model: [@user, @profile], url: user_profile_path(@user, format: :html), id: 'edit-profile-form',
+      <%= form_with model: [user, profile], url: user_profile_path(user, format: :html), id: 'edit-profile-form',
                     class:'w-96', data: {turbo: false} do |f| %>
         <div id='avatar' class='flex rounded-full -top-12 bg-purple-400 items-center justify-center' style='height: 100px; width: 100px;'>
           <%= image_tag 'default-avatar-fish.png', alt: 'Avatar', class: 'rounded-full'%>
         </div>
 
-        <%= fields_for :user, @user do |user_fields| %>
+        <%= fields_for :user, user do |user_fields| %>
           <div>
             <%= user_fields.label :display_name, class:'block text-white'  %>
             <%= user_fields.text_field :display_name, class:'w-72 px-2' %>
           </div>
         <% end %>
 
-        <%= fields_for :profile, @profile do |profile_fields| %>
+        <%= fields_for :profile, profile do |profile_fields| %>
           <div>
             <%= profile_fields.label :slug, class:"block text-white"  %>
             <%= profile_fields.text_field :slug, class:'w-80 px-2' %>
@@ -40,4 +36,3 @@
       <% end %>
     </div>
   <% end %>
-<% end %>
