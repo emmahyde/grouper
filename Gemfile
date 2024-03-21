@@ -55,6 +55,9 @@ gem 'image_processing', '>= 1.2'
 
 gem 'aws-sdk-s3', require: false
 
+# View Component for reusable components
+gem 'view_component', '~> 3.11'
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.4.2'
