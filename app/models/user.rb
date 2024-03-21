@@ -21,7 +21,9 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  after_create :create_user_profile
+  has_one_attached :picture, service: :s3_profiles do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100], preprocessed: true
+  end
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -29,6 +31,8 @@ class User < ApplicationRecord
 
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
+
+  encrypts :password
 
   def incoming_friend_requests
     incoming_friendship_links.where(mutual: false)

@@ -8,6 +8,10 @@ gem 'rails', '~> 7.1.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
+# A micro library providing Ruby objects with Publish-Subscribe capabilities
+# Use as an alternative to ActiveRecord callbacks and Observers in Rails apps
+gem 'wisper', '2.0.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
