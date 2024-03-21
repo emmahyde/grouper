@@ -52,15 +52,16 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:text, :user_id)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def require_login
-      redirect_to login_path unless current_user
-    end
+  def post_params
+    params.require(:post).permit(:text, :user_id)
+  end
+
+  def require_login
+    redirect_to login_path unless current_user
+  end
 end
