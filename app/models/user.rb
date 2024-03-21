@@ -43,6 +43,10 @@ class User < ApplicationRecord
     outgoing_friendship_links.where(mutual: true)
   end
 
+  def to_param
+    unique_name
+  end
+
   private
 
   def create_user_profile

@@ -1,5 +1,5 @@
 module.exports = {
-  // mode: 'jit',
+  mode: 'jit',
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',

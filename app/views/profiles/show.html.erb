@@ -1,42 +1,40 @@
 <%= render 'shared/nav' %>
 <div id='profile' class='marble-background max-w-xl mr-a ml-48'>
   <div id='hero'>
-    <div id ='banner' class='bg-gray-400 opacity-50' style="height: 250px;">
+    <div id='banner' class='bg-gray-400 opacity-50' style="height: 250px;">
       <!-- <img src='' alt='Banner Image'> -->
     </div>
     <div id='about' class='mx-4'>
       <div id='about-head' class='relative'>
         <div id='avatar' class='flex rounded-full absolute -top-12 bg-purple-400 items-center justify-center' style='height: 100px; width: 100px;'>
-          <%= image_tag 'default-avatar-fish.png', alt: 'Avatar', class: 'rounded-full'%>
+          <%= image_tag 'default-avatar-fish.png', alt: 'Avatar', class: 'rounded-full' %>
         </div>
         <div id='friend-request-button' class='absolute -top-4 -right-2 '>
           <span class='bg-blue-200 py-1 px-2 rounded-full opacity-50'>Request Friend</span>
-          <% if current_user == @profile.user %>
-            <%= link_to 'Edit', edit_user_profile_path(@user), id:'edit-profile-button', class:'bg-blue-200 py-2 px-2 rounded-full w-9', data: {turbo_frame: 'modal'}%>
+          <% if current_user == @user %>
+            <%= link_to 'Edit', edit_profile_path(@user), id: 'edit-profile-button', class: 'bg-blue-200 py-2 px-2 rounded-full w-9', data: { turbo_frame: 'modal' } %>
           <% end %>
         </div>
       </div>
       <div id='about-body' class='relative pt-14'>
-        <div id='name' class='font-bold font-sans'><%= @profile.user.display_name%> - <%=@profile.slug%></div>
-        <div id='about-text' class='mt-4'><%= @profile.description%></div>
+        <div id='name' class='font-bold font-sans'><%= @user.display_name %> (@<%= @user.unique_name %>)</div>
+        <div id='about-text' class='mt-4'><%= @profile.description %></div>
       </div>
     </div>
   </div>
   <div id='content-body' class='marble-background'>
     <ul id='content-nav' class='flex mt-12 px-36 border-b border-yellow-600 divide-x divide-yellow-600'>
       <li class='px-2'>
-        <%= link_to 'Posts', user_profile_path(@profile.user.id), data: { turbo_frame: 'content' } %>
+        <%= link_to 'Posts', profile_path(@user), data: { turbo_frame: 'content' } %>
       </li>
-      <li class='px-4' > 
-        <%= link_to 'Friends', friends_user_profile_path(@profile.user.id), data: { turbo_frame: 'content' } %>
+      <li class='px-4'>
+        <%= link_to 'Friends', friends_profile_path(@user), data: { turbo_frame: 'content' } %>
       </li>
       <li class='px-2 opacity-50'>Media</li>
     </ul>
     <%= turbo_frame_tag 'content', class: 'marble-background' do %>
-      <div id='posts'>
-        <%= render partial: 'posts/post', collection: @posts %>
-        <%= turbo_frame_tag 'loading-posts', src: user_profile_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
-      </div>
+      <%= render partial: 'posts/post', collection: @posts %>
     <% end %>
+    <%= turbo_frame_tag 'loading-posts', src: main_feed_path(format: :turbo_stream, page: @posts.next_page), loading: 'lazy' %>
   </div>
 </div>

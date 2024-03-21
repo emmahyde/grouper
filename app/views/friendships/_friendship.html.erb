@@ -1,6 +1,6 @@
 <div class="friendship">
   <span class="text-blue-500">
-    <%= link_to "#{friendship.friend.display_name}", user_profile_path(friendship.friend.id), data: {turbo: false} %>
+    <%= link_to "#{friendship.friend.display_name}", profile_path(friendship.friend), data: {turbo: false} %>
     
   </span>
   - <%=friendship.friend.profile.slug %>
