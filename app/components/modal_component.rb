@@ -3,7 +3,7 @@
 class ModalComponent < ViewComponent::Base
   include Turbo::FramesHelper
 
-  def initialize(title:)
+  def super(title:)
     @title = title
   end
 end

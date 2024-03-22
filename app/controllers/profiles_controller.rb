@@ -48,7 +48,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:picture, :description, user_attributes: [:id, :display_name])
+    params.require(:profile).permit(:picture, :description, user_attributes: %i[id display_name])
   end
 
   def authorize_current_user
