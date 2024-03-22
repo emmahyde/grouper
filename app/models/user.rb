@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :nullify
 
   has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
 
   after_create :create_user_profile
 
@@ -27,8 +28,8 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :unique_name, presence: true, uniqueness: { case_sensitive: false }
 
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, confirmation: true, if: :password_digest_changed?
+  validates :password_confirmation, presence: true, if: :password_digest_changed?
 
   def incoming_friend_requests
     incoming_friendship_links.where(mutual: false)
