@@ -12,6 +12,7 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
+  accepts_nested_attributes_for :user
 
   has_one_attached :banner, service: :s3_banners
   has_one_attached :picture, service: :s3_profiles do |attachable|

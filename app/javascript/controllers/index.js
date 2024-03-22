@@ -4,7 +4,8 @@
 
 import { application } from "./application"
 
-import FriendshipsController from "./friendships_controller.js"
-
+import FriendshipsController from "./friendships_controller"
 application.register("friendships", FriendshipsController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)

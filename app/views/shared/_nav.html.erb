@@ -3,6 +3,6 @@
     <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Home', root_path %></li>
     <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Profile', profile_path(current_user)%></li>
     <li><%= link_to 'Friendships', friendships_path %></li>
-    <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Logout', logout_path%></li>
+    <li class='hover:bg-slate-100/50 rounded-lg'><%= link_to 'Logout', logout_path, method: :delete, data: { turbo_method: :delete }%></li>
   </ul>
 </nav>
