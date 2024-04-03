@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.html do
         if @profile.update!(profile_params)
-          redirect_to profile_path(@user.unique_name), notice: 'Profile was successfully updated.'
+          redirect_to profile_path(@user), notice: 'Profile was successfully updated.'
         else
           render :edit, status: :unprocessable_entity
         end
