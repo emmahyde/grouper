@@ -1,0 +1,25 @@
+<%= form_with model: profile, local: true,
+              url: profile_path(user, format: :html),
+              id: 'edit-profile-form', 
+              class:'w-96', 
+              data: {turbo: false} do |f| %>
+  <div id='avatar' class='flex rounded-full -top-12 bg-purple-400 items-center justify-center' style='height: 100px; width: 100px;'>
+    <%= image_tag 'default-avatar-fish.png', alt: 'Avatar', class: 'rounded-full'%>
+  </div>
+
+    <%= f.fields_for :user, profile.user do |user_fields| %>
+      <div>
+        <%= user_fields.label :display_name, class:'block text-white'  %>
+        <%= user_fields.text_field :display_name, class:'w-72 px-2' %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.label :description, class:"block text-white"  %>
+      <%= f.text_area :description, class:'w-full px-2' %>
+    </div>
+
+  <div>
+    <%= f.submit "Save Changes", class:"block text-white bg-gray-800 rounded-full px-2" %>
+  </div>
+<% end %>

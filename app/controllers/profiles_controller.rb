@@ -34,15 +34,10 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    update_result = ActiveRecord::Base.transaction do
-      @user.update(user_params)
-      @profile.update(profile_params)
-    end
-
     respond_to do |format|
       format.html do
-        if update_result
-          redirect_to profile_path(@user)
+        if @profile.update!(profile_params)
+          redirect_to profile_path(@user), notice: 'Profile was successfully updated.'
         else
           render :edit, status: :unprocessable_entity
         end
@@ -53,11 +48,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:user_id, :slug, :picture, :description)
-  end
-
-  def user_params
-    params.require(:user).permit(:display_name, :unique_name)
+    params.require(:profile).permit(:picture, :description, user_attributes: %i[id display_name])
   end
 
   def authorize_current_user
