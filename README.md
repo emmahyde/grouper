@@ -1,4 +1,4 @@
-# GROUPER.LOL
+# [GROUPER.LOL](https://grouper.lol/)
 
 GeoCities meets the modern era.
 
