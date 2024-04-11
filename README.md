@@ -1,4 +1,4 @@
-# README
+# GROUPER.LOL
 
 GeoCities meets the modern era.
 
