@@ -30,6 +30,7 @@ This application contains no frontend framework; instead we are leveraging Hotwi
     - https://stimulus.hotwired.dev/
   - Awesome List: 
     - https://github.com/adamaiken89/awesome-hotwire
+    - https://berry.sh/blog/awesome_hotwire
   - Walkthroughs:
     - https://www.hotrails.dev/
     - Demo: https://github.com/salex/turbo-bingo-demo
