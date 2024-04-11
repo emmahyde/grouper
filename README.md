@@ -1,5 +1,7 @@
 # README
 
+GeoCities meets the modern era.
+
 ## Installation
 
 - `asdf install ruby 3.2.2`
