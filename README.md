@@ -18,3 +18,20 @@
 
 ## Running Tests
 - `bundle exec rspec spec`
+
+## Resources 
+This application contains no frontend framework; instead we are leveraging Hotwire functionalities.
+- Hotwire
+  - Info: 
+    - https://hotwired.dev/
+    - https://turbo.hotwired.dev/
+    - https://stimulus.hotwired.dev/
+  - Awesome List: 
+    - https://github.com/adamaiken89/awesome-hotwire
+  - Walkthroughs:
+    - https://www.hotrails.dev/
+    - Demo: https://github.com/salex/turbo-bingo-demo
+- Rails 7
+  - https://guides.rubyonrails.org/v7.0/
+- Ruby 3.2
+  - https://rubyreferences.github.io/rubychanges/3.2.html
