@@ -49,4 +49,6 @@ yarn-error.log
 /node_modules
 /.aider.tags.cache.v3/
 
+public/vite*
+
 erd.pdf
