@@ -49,4 +49,10 @@ yarn-error.log
 /node_modules
 /.aider.tags.cache.v3/
 
+public/vite-dev*
+
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 erd.pdf
