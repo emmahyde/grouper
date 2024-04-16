@@ -19,7 +19,9 @@ Rails.application.config.content_security_policy do |policy|
       :self,
       :https,
       "http://#{ViteRuby.config.host_with_port}",
-      "ws://#{ViteRuby.config.host_with_port}"
+      'http://localhost:3039', # hmr client port
+      "ws://#{ViteRuby.config.host_with_port}",
+      'ws://localhost:3039', # hmr client port
     )
   end
 
