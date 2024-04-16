@@ -29,6 +29,10 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+vendor
+.ruby-lsp
+.bundle
+
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
@@ -51,3 +55,11 @@ yarn-error.log
 
 public/vite*
 erd.pdf
+
+# Vite Ruby
+/public/vite*
+# Vite uses dotenv and suggests to ignore local-only env files. See
+# https://vitejs.dev/guide/env-and-mode.html#env-files
+*.local
+
+!/app/assets/builds/

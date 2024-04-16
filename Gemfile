@@ -6,7 +6,7 @@ ruby '3.3.0'
 gem 'rails', '~> 7.1.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+# gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -58,6 +58,9 @@ gem 'aws-sdk-s3', require: false
 
 # View Component for reusable components
 gem 'view_component', '~> 3.11'
+
+# Vite for modern JavaScript tooling
+gem 'vite_rails'
 
 group :test do
   gem 'database_cleaner-active_record'

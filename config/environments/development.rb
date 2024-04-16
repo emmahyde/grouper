@@ -28,10 +28,11 @@ Rails.application.configure do
   config.server_timing = true
 
   # set assets to dev/debug mode
-  config.assets.debug = true
-  config.assets.compress = false
-  config.assets.compile = true
-  config.serve_static_assets = false
+  # config.assets.debug = true
+  # config.assets.compress = false
+  # config.assets.compile = true
+  # config.serve_static_assets = false
+  # config.assets.digest = false
 
   # Enable/disable caching
   config.action_controller.perform_caching = true
@@ -80,4 +81,8 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.hotwire_livereload.listen_paths << Rails.root.join('app/client')
+  config.hotwire_livereload.force_reload_paths << Rails.root.join('app/client')
+  # config.hotwire_livereload.reload_method = :turbo_stream
 end
