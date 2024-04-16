@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '3.2.3'
+ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.1.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+# gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -15,7 +15,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem 'jsbundling-rails'
+# gem 'jsbundling-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
@@ -24,7 +24,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem 'cssbundling-rails'
+# gem 'cssbundling-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -58,6 +58,9 @@ gem 'aws-sdk-s3', require: false
 
 # View Component for reusable components
 gem 'view_component', '~> 3.11'
+
+# Vite for modern JavaScript tooling
+gem 'vite_rails'
 
 group :test do
   gem 'database_cleaner-active_record'
